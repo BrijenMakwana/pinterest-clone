@@ -5,7 +5,7 @@ import { Entypo,MaterialCommunityIcons } from '@expo/vector-icons';
 import MasonryLayout from "../components/MasonryLayout";
 import {pins} from "../assets/data/pins";
 
-export default function TabTwoScreen() {
+export default function ProfileScreen() {
   return (
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.container}>

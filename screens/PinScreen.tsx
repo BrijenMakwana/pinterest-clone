@@ -57,6 +57,6 @@ const styles = StyleSheet.create({
     title:{
         padding: 10,
         fontSize: 20,
-        fontWeight: "600"
+        fontWeight: "500"
     }
 });
