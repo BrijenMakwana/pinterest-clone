@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {View, StyleSheet, Image, Text, Pressable} from "react-native";
 import { Feather } from '@expo/vector-icons';
+import {useNavigation} from "@react-navigation/native";
 
 export type PinComponentProps = {
     pin:{
@@ -16,11 +17,17 @@ const PinComponent = (props: PinComponentProps) => {
     useEffect(()=>{
         //getting image aspect ratio
         Image.getSize(props.pin.image,(width,height)=>setRatio(width/height) );
-    },[props.pin.image])
+    },[props.pin.image]);
 
+    const navigation = useNavigation();
 
+    const goToPinScreen = () => {
+            navigation.navigate("Pin",{
+                pinId: props.pin.id
+            });
+    }
 
-    return <View style={styles.container}>
+    return <Pressable style={styles.container} onPress={goToPinScreen}>
         <View>
             {/* pin image */}
             <Image
@@ -38,7 +45,7 @@ const PinComponent = (props: PinComponentProps) => {
         </View>
         {/* title */}
         <Text style={styles.title} numberOfLines={2}>{props.pin.title}</Text>
-    </View>
+    </Pressable>
 }
 
 export default PinComponent;

@@ -8,7 +8,7 @@ import {pins} from '../assets/data/pins'
 
 export default function TabOneScreen() {
   return (
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.container}>
           <View style={styles.columnOne}>
               {
