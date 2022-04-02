@@ -18,12 +18,15 @@ export default function ProfileScreen() {
             </Pressable>
 
           </View>
-          <Image
-              source={{
-                uri: "https://avatars.githubusercontent.com/u/96004700?v=4"
-            }}
-              style={styles.image}
-          />
+          <View style={styles.imageContainer}>
+            <Image
+                source={{
+                  uri: "https://avatars.githubusercontent.com/u/96004700?v=4"
+                }}
+                style={styles.image}
+            />
+          </View>
+
           <Text style={styles.title}>Brijen Makwana</Text>
           <Text style={styles.stats}>100 Followers | 80 Following</Text>
           <View style={styles.pinsContainer}>
@@ -48,11 +51,20 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     padding: 5
   },
-  image:{
+  imageContainer:{
+    padding: 6,
+    backgroundColor: "#fca311",
+    borderRadius: 200,
+    alignItems: "center",
+    justifyContent: "center",
     width: 200,
     height: 200,
+  },
+  image:{
+    width: "100%",
+    aspectRatio: 1/1,
     borderRadius: 100,
-    marginTop: 5
+
   },
   title:{
     fontSize: 30,

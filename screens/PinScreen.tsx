@@ -33,7 +33,7 @@ export default function PinScreen() {
                 }]}
             />
             <Pressable style={styles.backBtn} onPress={goBack}>
-                <Ionicons name="arrow-back-sharp" size={30} color="#fff" />
+                <Ionicons name="arrow-back-sharp" size={30} color="#fca311" />
             </Pressable>
             <Text style={styles.title}>{pins[route.params.pinId].title}</Text>
         </View>

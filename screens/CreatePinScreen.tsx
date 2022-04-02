@@ -30,7 +30,7 @@ export default function CreatePinScreen() {
             {image && <Image source={{ uri: image }} style={[styles.image,{
                 aspectRatio: ratio
             }]} />}
-            <Button title="Pick an Image" onPress={pickImage} />
+            <Button title="Pick an Image" onPress={pickImage} color="#fca311"/>
             <TextInput
                 placeholder="Enter text here"
                 value={title}
