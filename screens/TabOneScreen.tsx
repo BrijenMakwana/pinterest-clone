@@ -1,4 +1,4 @@
-import {FlatList, StyleSheet} from 'react-native';
+import {ScrollView, StyleSheet} from 'react-native';
 
 
 import {  View } from '../components/Themed';
@@ -8,20 +8,39 @@ import {pins} from '../assets/data/pins'
 
 export default function TabOneScreen() {
   return (
-    <View style={styles.container}>
-      <FlatList
-          data={pins}
-          renderItem={({item})=> <PinComponent pin={item}/>}
-          keyExtractor={item=>item.id}
-          numColumns={2}
-          showsVerticalScrollIndicator={false}
-      />
-    </View>
+      <ScrollView>
+        <View style={styles.container}>
+          <View style={styles.columnOne}>
+              {
+                  pins.filter((_,index)=>index%2 === 0).map((item)=>(
+                      <PinComponent pin={item} key={item.id}/>
+                  ))
+              }
+          </View>
+            <View style={styles.columnTwo}>
+                {
+                    pins.filter((_,index)=>index%2 === 1).map((item)=>(
+                        <PinComponent pin={item} key={item.id}/>
+                    ))
+                }
+            </View>
+        </View>
+      </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  }
+    container: {
+        flex: 1,
+        flexDirection: "row",
+        backgroundColor: "#fff"
+    },
+    columnOne: {
+        flex: 1,
+
+    },
+    columnTwo:{
+        flex: 1,
+
+    }
 });

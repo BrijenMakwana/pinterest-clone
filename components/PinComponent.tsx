@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {View, StyleSheet, Image, Text, Pressable} from "react-native";
 import { Feather } from '@expo/vector-icons';
 
@@ -13,8 +13,12 @@ export type PinComponentProps = {
 const PinComponent = (props: PinComponentProps) => {
     const [ratio,setRatio] = useState(1);
 
-    //getting image aspect ratio
-    Image.getSize(props.pin.image,(width,height)=>setRatio(width/height) );
+    useEffect(()=>{
+        //getting image aspect ratio
+        Image.getSize(props.pin.image,(width,height)=>setRatio(width/height) );
+    },[props.pin.image])
+
+
 
     return <View style={styles.container}>
         <View>
@@ -41,7 +45,7 @@ export default PinComponent;
 
 const styles = StyleSheet.create({
     container:{
-        width: "50%",
+        width: "100%",
         padding: 10
     },
     image:{
