@@ -3,7 +3,7 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { Ionicons,FontAwesome5 } from '@expo/vector-icons';
+import { Ionicons,FontAwesome5, FontAwesome } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -13,6 +13,7 @@ import { ColorSchemeName } from 'react-native';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import HomeScreen from '../screens/HomeScreen';
+import CreatePinScreen from '../screens/CreatePinScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import { RootStackParamList, RootTabParamList } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
@@ -67,6 +68,14 @@ function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <Ionicons name="home" size={24} color={color} />
         }}
       />
+        <BottomTab.Screen
+            name="CreatePin"
+            component={CreatePinScreen}
+            options={{
+                title: 'Home',
+                tabBarIcon: ({ color }) => <FontAwesome name="plus" size={24} color={color} />
+            }}
+        />
       <BottomTab.Screen
         name="Profile"
         component={ProfileScreen}
